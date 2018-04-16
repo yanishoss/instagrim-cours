@@ -1,16 +1,7 @@
 version: '2'
 
 services:
-  reverse-proxy:
-    image: traefik #The official Traefik docker image
-    command: --api --docker --defaultentrypoints=api --entryPoints='Name:api Host:api.docker.localhost Address::443' #Enables the web UI and tells Træfik to listen to docker
-    ports:
-      - "80:80"     #The HTTP port
-      - "8080:8080" #The Web UI (enabled by --api)
-      - "443:443"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock #So that Traefik can listen to the Docker events
   api:
     build: ./build/
-    labels:
-      - "traefik.frontend.rule=Host:api.docker.localhost"
+    ports: 
+      - "443:443"
