@@ -1,0 +1,19 @@
+package: .
+import:
+- package: github.com/labstack/echo
+  version: ^3.3.5
+  subpackages:
+  - '...'
+- package: github.com/asdine/storm
+  version: ^2.1.0
+- package: github.com/google/uuid
+  version: ^0.2.0
+- package: github.com/markbates/validate
+  version: ^1.0.0
+- package: github.com/go-playground/validator
+  version: ^9.15.0
+- package: github.com/dgrijalva/jwt-go
+  version: ^3.2.0
+- package: github.com/syndtr/goleveldb
+  subpackages:
+  - leveldb

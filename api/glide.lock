@@ -1,0 +1,63 @@
+hash: 52975fb1e46b63e2cb5c10e24ba37464d22f4e94a88092d9ee2e9201bb11fad4
+updated: 2018-04-16T12:02:02.4935331+02:00
+imports:
+- name: github.com/asdine/storm
+  version: a86fa5e09c9c50a06416b08fd9acd4839fb2d62e
+  subpackages:
+  - codec
+  - codec/json
+  - index
+  - internal
+  - q
+- name: github.com/coreos/bbolt
+  version: af9db2027c98c61ecd8e17caa5bd265792b9b9a2
+- name: github.com/dgrijalva/jwt-go
+  version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
+- name: github.com/go-playground/locales
+  version: f63010822830b6fe52288ee52d5a1151088ce039
+  subpackages:
+  - currency
+- name: github.com/go-playground/universal-translator
+  version: 71201497bace774495daed26a3874fd339e0b538
+- name: github.com/go-playground/validator
+  version: 14984d91328f9612b58443cbdf4a077d4fd71091
+- name: github.com/google/uuid
+  version: 064e2069ce9c359c118179501254f67d7d37ba24
+- name: github.com/labstack/echo
+  version: 6d227dfea4d2e52cb76856120b3c17f758139b4e
+  subpackages:
+  - '...'
+  - middleware
+- name: github.com/labstack/gommon
+  version: 3bc2d333a4c30531c47051369043bcabd62ff4c0
+  subpackages:
+  - bytes
+  - color
+  - log
+  - random
+- name: github.com/markbates/validate
+  version: cd8cc34c703420d6b084fbbfd5085e8e71c5b830
+- name: github.com/mattn/go-colorable
+  version: efa589957cd060542a26d2dd7832fd6a6c6c3ade
+- name: github.com/mattn/go-isatty
+  version: 6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c
+- name: github.com/syndtr/goleveldb
+  version: 714f901b98fdb3aa954b4193d8cbd64a28d80cad
+  subpackages:
+  - leveldb
+- name: github.com/valyala/bytebufferpool
+  version: e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7
+- name: github.com/valyala/fasttemplate
+  version: dcecefd839c4193db0d35b88ec65b4c12d360ab0
+- name: golang.org/x/crypto
+  version: d6449816ce06963d9d136eee5a56fca5b0616e7e
+  subpackages:
+  - acme
+  - acme/autocert
+  - bcrypt
+  - blowfish
+- name: golang.org/x/sys
+  version: 2281fa97ef7b0c26324634d5a22f04babdac8713
+  subpackages:
+  - unix
+testImports: []
