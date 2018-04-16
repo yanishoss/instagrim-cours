@@ -20,7 +20,7 @@ func AuthenticateUser(next echo.HandlerFunc) echo.HandlerFunc {
 		}
 		user, err := repo.FindOneById(claims["id"].(string))
 		if err != nil {
-			return c.JSON(500, BAD_CREDENTIALS)
+			return c.JSON(403, BAD_CREDENTIALS)
 		}
 		c.Set("user", user)
 		return next(c)
