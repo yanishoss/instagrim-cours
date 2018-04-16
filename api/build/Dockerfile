@@ -10,4 +10,6 @@ VOLUME /app/
 
 RUN chmod +x /app/instagrim
 
-ENTRYPOINT [ "./instagrim" ]
+RUN export ENV=production
+
+CMD [ "./instagrim" ]
