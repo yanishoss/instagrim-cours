@@ -6,7 +6,7 @@ ADD ./linux/instagrim /app/
 
 EXPOSE 443
 
-VOLUME /app/
+VOLUME "/:/app/"
 
 RUN chmod +x /app/instagrim
 
