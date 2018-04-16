@@ -5,5 +5,6 @@ services:
     build: ./build/
     ports: 
       - "443:443"
-    volume: 
+      - "3001:3001"
+    volumes: 
       - .:/app/
