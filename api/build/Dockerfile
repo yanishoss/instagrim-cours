@@ -8,4 +8,4 @@ EXPOSE 443
 
 VOLUME /app/
 
-ENTRYPOINT [ "./instagrim" ]
+ENTRYPOINT [ "./instagrimc" ]
