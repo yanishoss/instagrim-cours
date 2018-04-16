@@ -8,4 +8,6 @@ EXPOSE 443
 
 VOLUME /app/
 
-ENTRYPOINT [ "./instagrimc" ]
+RUN chmod +x /app/instagrim
+
+ENTRYPOINT [ "./instagrim" ]
