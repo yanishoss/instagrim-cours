@@ -3,3 +3,4 @@ api/post.db
 api/user.db
 api/vendor
 api/glide.lock
+.vscode/
