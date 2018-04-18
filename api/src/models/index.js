@@ -17,7 +17,8 @@ postSchema.add({
         type: userSchema,
         required: true,
         unique: false
-    }
+    },
+   
 });
 
 userSchema.add({
@@ -33,7 +34,9 @@ userSchema.add({
         type: String,
         required: true
     },
-    posts: [postSchema]
+    posts: [postSchema], 
+    avatar: String,
+    bio: String
 });
 
 exports.postModel = mongoose.model("Post", postSchema);

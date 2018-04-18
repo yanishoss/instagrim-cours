@@ -6,6 +6,8 @@ type User {
     username: String!
     email: String!
     posts: [Post]
+    avatar: String
+    bio: String
     feed(last: Int): [Post]
 }
 
@@ -27,7 +29,8 @@ type Query {
 }
 
 type Mutation {
-    createUser(username: String!, email: String!, password: String!): User!
+    createUser(username: String!, email: String!, password: String!,avatar: String, bio: String): User!
+    updateUser(token: String!, email: String, password: String, avatar: String, bio: String): User
     authenticateUser(email: String!, password: String!): Token
     createPost(description: String, image: String!, token: String!): Post
 }

@@ -46,6 +46,17 @@ const userResolver = {
                 id: user._doc._id,
             };
         },
+        updateUser: async (_, args) => {
+            const token = await verifyToken(args.token);
+            if (token.isValid) {
+                await userModel.updateOne(token.user, args).exec();
+                const user = await userModel.findById(token.user._id).exec();
+                console.log(user)
+                user.id = user._id;
+                return user;
+            }
+            return null
+        },
         authenticateUser: async (_, args) => {
             const user = await userModel.findOne({
                 email: args.email
