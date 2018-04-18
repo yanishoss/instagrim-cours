@@ -1,8 +1,8 @@
 # Comment lancer l'API ?
-**En mode développement (avec hot-reloading).**
+**En mode développement (avec hot-reloading):**
 
 ```npm run dev```
 
-**En mode production**
+**En mode production:**
 
 ```npm start```
