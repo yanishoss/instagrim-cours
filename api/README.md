@@ -15,7 +15,7 @@
 
 **Route GraphQL:** ```/graphql```
 
-**Route GrahpiQL (interface pour faire des requêtes GraphQL):** ```/graphiql```
+**Route GraphiQL (interface pour faire des requêtes GraphQL):** ```/graphiql```
 
 **Types:**
 
