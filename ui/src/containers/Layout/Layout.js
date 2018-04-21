@@ -6,9 +6,9 @@ import { ThemeProvider } from 'styled-components';
 import Header from '../../components/Header/Header';
 
 const theme = {
-    primary: '#E91E63',
+    primary: '#212121',
     secondary: '#FAFAFA',
-    ternary: '#212121'
+    ternary: '#616161'
 };
 
 class Layout extends Component {

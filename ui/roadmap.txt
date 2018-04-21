@@ -1,0 +1,11 @@
+Remaining work:
+    - Show either a sign-in and sign-up icon if not authenticated or a log-out icon if authenticated
+    - Show the user's avatar instead of the account icon
+    - Make the search bar works, meaning it should fetch the matching users and display them in a drop-down list,
+      the users should be formatted as follow:
+        1 - Avatar
+        2 - Full Name
+        3 - Username
+        4 - A shorter version of his bio (20 characters or so)
+        
+    
