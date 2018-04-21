@@ -1,0 +1,44 @@
+{
+  "short_name": "Instagrim",
+  "name": "Instagrim",
+  "description": "Montre à tes amis tes pires têtes",
+  "lang": "fr-FR",
+  "icons": [
+    {
+      "src": "favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-196x196.png",
+      "sizes": "196x196",
+      "type": "image/png"
+    }
+  ],
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#FAFAFA",
+  "background_color": "#FAFAFA"
+}
