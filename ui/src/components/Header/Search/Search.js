@@ -5,6 +5,7 @@ import { searchDoQuery } from '../../../store/actions';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+import User from '../../User/User';
 
 const StyledDiv = styled.div`
     display: flex;
@@ -69,7 +70,7 @@ class Search extends Component {
     input = React.createRef()
 
     state = {
-        query: null,
+        query: '',
         isFocused: false,
         isOpened: false
     }
@@ -77,7 +78,7 @@ class Search extends Component {
     formatResults = () => {
         return this.props.results ? this.props.results.map((result) => {
             return (
-                <MenuItem key={result.username}>{result.username}</MenuItem>
+                <MenuItem key={result.username}><User avatar={result.avatar} username={result.username} bio={result.bio} /></MenuItem>
             );
         }) : null;
     }
@@ -88,13 +89,13 @@ class Search extends Component {
                 <Input value={this.state.query} inputRef={ref => {
                     this.input = ref;
                 }} onChange={(e) => this.setState({query: e.target.value})} {...this.props} onFocus={() => this.setState({isFocused: true})} onBlur={() => this.setState({isFocused: false})}/>
-                <Grow in={this.isOpened}>
+                {this.isOpened ? <Grow in={this.isOpened}>
                     <Paper>
                         <MenuList>
                             {this.formatResults()}
                         </MenuList>
                     </Paper>
-                </Grow>
+                </Grow> : null}
             </StyledDiv>
         );
     }
