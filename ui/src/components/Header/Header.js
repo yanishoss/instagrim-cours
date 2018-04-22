@@ -1,10 +1,13 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Icon, Input, InputAdornment, Button, MenuList, MenuItem, Paper, Grow } from 'material-ui';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Icon, InputAdornment, Button, MenuList, MenuItem, Paper, Grow, Avatar } from 'material-ui';
 import styled from 'styled-components';
 import MediaQuery from 'react-responsive';
 
 import Logo from './Logo/Logo';
+import Search from './Search/Search';
 
 const StyledHeader = styled.header`
 display: flex;
@@ -25,7 +28,7 @@ box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.
 }
 `;
 
-const StyledInput = styled(Input)`
+const StyledSearch = styled(Search)`
 input {
     color: ${props => props.theme.secondary};
     font-weight: 300;
@@ -76,6 +79,13 @@ li {
     span {
         font-size: 2.5rem;
     }
+    a {
+        color: ${props => props.theme.primary}
+        text-decoration: none;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-weight: 500;
+    };
 }
 
 @media only screen and (max-width: 600px) {
@@ -129,32 +139,37 @@ class Header extends Component {
 
     render() {
         return (
-            <Fragment>
                 <StyledHeader>
                     <Logo color="white" height="3rem" />
                     <MediaQuery minWidth={600}>
-                        <StyledInput placeholder="Chercher un utilisateur" startAdornment={ <InputAdornment position="start"><Icon className="secondary">group</Icon></InputAdornment>} />
+                        <StyledSearch placeholder="Chercher un utilisateur" startAdornment={ <InputAdornment position="start"><Icon className="secondary">group</Icon></InputAdornment>} />
                     </MediaQuery>
                     <Button onClick={this.toggleMenu}>
                         <Icon className="secondary">{this.state.menuIsOpen ? 'clear' : 'menu'}</Icon>
                     </Button>
                     <StyledGrow in={this.state.menuIsOpen} ref="menu">
-                    <Paper>
-                    <MenuList>
-                        <MenuItem><Icon className="primary">home</Icon></MenuItem>
-                        <MenuItem><Icon className="primary">account_circle</Icon></MenuItem>
-                        <MenuItem><Icon className="primary">subscriptions</Icon></MenuItem>
-                        <MenuItem><Icon className="primary">power_settings_new</Icon></MenuItem>
-                        <MediaQuery maxWidth={600}>
-                            <StyledInput placeholder="Chercher un utilisateur" startAdornment={ <InputAdornment position="start"><Icon className="primary">group</Icon></InputAdornment>} />
-                        </MediaQuery>
-                    </MenuList>
-                    </Paper>
-                </StyledGrow>
+                        <Paper>
+                            <MenuList>
+                                <MenuItem><Link to="/"><Icon className="primary">home</Icon></Link></MenuItem>
+                                <MenuItem><Link to="/profile">{this.props.avatar ? <Avatar src={this.props.avatar}/>  : <Icon className="primary">account_circle</Icon>}</Link></MenuItem>
+                                <MenuItem><Link to="/feed"><Icon className="primary">subscriptions</Icon></Link></MenuItem>
+                                {this.props.isAuthenticated ? <MenuItem><Link to="/logout"><Icon className="primary">power_settings_new</Icon></Link></MenuItem> : null}
+                                {!this.props.isAuthenticated ? <MenuItem><Link to="/signin">Se connecter</Link></MenuItem> : null}
+                                {!this.props.isAuthenticated ? <MenuItem><Link to="/signup">S&acute;inscrire</Link></MenuItem> : null}
+                                <MediaQuery maxWidth={600}>
+                                    <StyledSearch placeholder="Chercher un utilisateur" startAdornment={ <InputAdornment position="start"><Icon className="primary">group</Icon></InputAdornment>} />
+                                </MediaQuery>
+                            </MenuList>
+                        </Paper>
+                    </StyledGrow>
                 </StyledHeader>
-              </Fragment>
         );
     }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    avatar: state.user.avatar
+});
+
+export default connect(mapStateToProps)(Header);

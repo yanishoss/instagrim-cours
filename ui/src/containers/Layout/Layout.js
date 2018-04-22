@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 
@@ -14,11 +13,9 @@ const theme = {
 class Layout extends Component {
     render() {
         return (
-            <BrowserRouter>
-                <ThemeProvider theme={theme}>
-                    <Header />
-                </ThemeProvider>
-            </BrowserRouter>
+            <ThemeProvider theme={theme}>
+                <Header />
+            </ThemeProvider>
         );
     }
 }
