@@ -1,42 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#FAFAFA">
-  <meta name="keywords" content="instagrim, share, social, network, picture, post, hashtag, réseau, social, photo, article">
-  <meta name="description" content="Montre à tes amis tes pires têtes !">
-  <meta name="language" content="FR">
-  <meta name="copyright" name="MIT License">
-  <!--
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="%PUBLIC_URL%/apple-touch-icon-57x57.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="%PUBLIC_URL%/apple-touch-icon-114x114.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="%PUBLIC_URL%/apple-touch-icon-72x72.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="%PUBLIC_URL%/apple-touch-icon-144x144.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="%PUBLIC_URL%/apple-touch-icon-60x60.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="%PUBLIC_URL%/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="%PUBLIC_URL%/apple-touch-icon-76x76.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="%PUBLIC_URL%/apple-touch-icon-152x152.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="512x512" href="%PUBLIC_URL%/apple-touch-icon-512x512.png" />
-  <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-512x512.png" sizes="512x512" />
-  <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-196x196.png" sizes="196x196" />
-  <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-16x16.png" sizes="16x16" />
-  <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-128.png" sizes="128x128" />
-  <meta name="application-name" content="&nbsp;" />
-  <meta name="msapplication-TileColor" content="#FAFAFA" />
-  <meta name="msapplication-TileImage" content="%PUBLIC_URL%/mstile-144x144.png" />
-  <meta name="msapplication-square70x70logo" content="%PUBLIC_URL%/mstile-70x70.png" />
-  <meta name="msapplication-square150x150logo" content="%PUBLIC_URL%/mstile-150x150.png" />
-  <meta name="msapplication-wide310x150logo" content="%PUBLIC_URL%/mstile-310x150.png" />
-  <meta name="msapplication-square310x310logo" content="%PUBLIC_URL%/mstile-310x310.png" />
-  <!--
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -45,202 +19,14 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <title>Instagrim</title>
-</head>
-
-<body>
-  <noscript>
-    You need to enable JavaScript to run this app.
-  </noscript>
-  <div id="root">
-    <div class="loadingpage">
-      <div class="loader">
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-        <div class="wineglass left">
-          <div class="top"></div>
-        </div>
-        <div class="wineglass right">
-          <div class="top"></div>
-        </div>
-      </div>
-    </div>
-
-    <style>
-      .loadingpage {
-        display: flex;
-        width: calc(100vw - 20px);
-        height: calc(100vh - 20px);
-        justify-content: center;
-        align-items: center;
-        background-color: #212121;
-        border-radius: 30px;
-      }
-
-      .wineglass {
-        height: 36px;
-        position: relative;
-      }
-
-      .wineglass:after {
-        content: '';
-        position: absolute;
-        top: 47px;
-        left: 5px;
-        width: 20px;
-        height: 5px;
-        background: white;
-        box-shadow: 0 0 1px white;
-      }
-
-      .top {
-        background: white;
-        width: 30px;
-        height: 36px;
-        border-radius: 0 0 36px 36px;
-        box-shadow: 0 0 1px white;
-      }
-
-      .top:before {
-        content: '';
-        position: absolute;
-        left: 4px;
-        bottom: 4px;
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background: linear-gradient(transparent 50%, #F36E3E 50%);
-      }
-
-      .left .top:before {
-        animation: rotate2 2s linear infinite;
-      }
-
-      .right .top:before {
-        animation: rotate1 2s linear infinite;
-      }
-
-      .top:after {
-        content: '';
-        position: absolute;
-        top: 35px;
-        left: 12px;
-        width: 6px;
-        height: 13px;
-        background: white;
-        box-shadow: 0 0 1px white;
-      }
-
-      .left {
-        display: inline-block;
-        margin-right: 10px;
-        animation: rotate1 2s cubic-bezier(.39, 1.52, .46, .92) infinite;
-      }
-
-      .right {
-        display: inline-block;
-        animation: rotate2 2s cubic-bezier(.39, 1.52, .46, .92) infinite;
-      }
-
-      @keyframes rotate1 {
-        0% {
-          transform: rotate(0deg);
-        }
-        50% {
-          transform: rotate(22deg);
-        }
-      }
-
-      @keyframes rotate2 {
-        0% {
-          transform: rotate(0deg);
-        }
-        50% {
-          transform: rotate(-22deg);
-        }
-      }
-
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        width: 70px;
-        height: 25px;
-        position: relative;
-        opacity: 0;
-        animation: 2s fadeInUp infinite linear 2s;
-      }
-
-      li {
-        width: 6px;
-        height: 15px;
-        background: white;
-        position: absolute;
-        box-shadow: 0 0 1px white;
-        transform-origin: bottom;
-      }
-
-      li:nth-child(1) {
-        left: 26px;
-        bottom: 5px;
-        transform: rotate(-35deg);
-      }
-
-      li:nth-child(2) {
-        left: 34px;
-        bottom: 8px;
-      }
-
-      li:nth-child(3) {
-        left: 42px;
-        bottom: 5px;
-        transform: rotate(35deg);
-      }
-
-      @keyframes fadeInUp {
-        0% {
-          opacity: 0;
-          transform: scaleY(1);
-        }
-
-        33% {
-          opacity: 1;
-          transform: scaleY(1.4);
-        }
-        64% {
-          opacity: .1;
-          transform: scaleY(1);
-        }
-        100% {
-          opacity: 0;
-          transform: scaleY(.3);
-        }
-      }
-    </style>
-  </div>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-size: 62.5% !important;
-      color: #212121;
-      font-family: 'Roboto', sans-serif !important;
-      background-color: #EEEEEE;
-      padding: 10px;
-      width: 100vw;
-      height: 100vh;
-    }
-  </style>
-  <!--
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -250,6 +36,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-</body>
-
+  </body>
 </html>
