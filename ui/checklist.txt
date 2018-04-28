@@ -1,0 +1,48 @@
+---------------------------------------------------------------------
+                        Checklist: 
+    - Layout: 
+        - Header: 
+            - Logo
+            - Barre de recherche (permet de rechercher d'autre utilisateur): 
+                - Liste déroulante avec les utilisateurs qui correspondent à la recherche
+            - Navigation (permet de naviguer entre les différentes pages):
+                - Accueil
+                - Lien vers le fil d'actualité, si authentifié
+                - Lien vers le profil, si authentifié
+                - Lien vers les paramètres, si authentifié
+                - Lien vers la page d'inscription, si non authentifié
+                - Lien vers la page de connexion, si non authentifié
+        - Footer:
+            - Logo
+            - Copyright
+        - Menu (seulement sur mobile): 
+            - Reprend les éléments de la navigation
+        - Composant pour créer une publication: 
+            - Nous devons être authentifié
+        
+    - Pages: 
+        - Feed (fil d'actualité):
+            - Nous devons être authentifié
+        - Profil (voir les profils de nos amis):
+            - Si on est authentifié et que c'est notre profil, on veut pouvoir changer nos informations (nom d'utilisateur, biographie, avatar)
+            - Si on a pas de profil (cela signifie pas avoir d'avatar, de publication ou de biographie), pousser l'utilisateur à créer son profil
+        - Paramètre (permet de changer les informations de l'utilisateur): 
+            - Nous devons être authentifié
+            - Nous devons pouvoir modifier: 
+                - Nom d'utilisateur
+                - Email
+                - Mot de passe
+        - Accueil (est censé pousse les visiteurs à s'inscrire):
+            - Couverture aguicheuse, pousse les visiteurs à s'inscrire
+            - Montre les fonctionnalités du réseau
+        - Inscription:
+            - Formulaire avec:
+                - Nom d'utilisateur (supérieur à 8 caractères, inférieur à 15 caractères)
+                - Email (doit bien être une email)
+                - Mot de passe (supérieur à 10 caractères, inférieur à 60 caractères)
+            - Redirige vers la page de profil
+        - Connexion: 
+            - Formulaire avec:
+                - Email
+                - Mot de passe
+            - Redirige vers le fi d'actualité
