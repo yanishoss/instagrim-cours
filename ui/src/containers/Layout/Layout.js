@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import styled, {ThemeProvider} from 'styled-components';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import Welcome from '../../pages/Welcome/Welcome';
 
 const theme = {
     primary: '#212121',
@@ -24,6 +26,14 @@ const theme = {
 const StyledDiv = styled.div `
     color: ${props => props.theme.primary};
     font-size: ${props => props.theme.fontSize};
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    min-width: 100vw;
+    min-height: 100vh;
+    > *:not(header):not(footer) {
+        flex-grow: 1;
+    }
 `;
 
 class Layout extends Component {
@@ -33,6 +43,11 @@ class Layout extends Component {
                 <ThemeProvider theme={theme}>
                     <StyledDiv>
                         <Header/>
+                        <Switch>
+                            <Route path="/home" component={Welcome} exact/>
+                            <Redirect to="/home"/>
+                        </Switch>                    
+                        <Footer/>
                     </StyledDiv>
                 </ThemeProvider>
             </BrowserRouter>

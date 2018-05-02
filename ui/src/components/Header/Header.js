@@ -11,11 +11,9 @@ import Transition from 'react-transition-group/Transition';
 
 const StyledHeader = styled.header `
     display: flex;
-    position: relative;
     justify-content: space-around;
     align-items: center;
-    width: 100vw;
-    margin: auto;
+    min-width: 100vw;
     background-color: ${props => props.theme.ternary};
     padding: 1.5rem;
 
@@ -160,6 +158,7 @@ class Header extends Component {
             ))`
             display: flex;
             justify-content: space-around;
+            position: fixed;
             align-items: center;
             width: 100vw;
             margin: auto;
