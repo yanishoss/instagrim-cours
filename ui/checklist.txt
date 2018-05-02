@@ -2,16 +2,16 @@
                         Checklist: 
     - Layout: 
         - Header: 
-            - Logo
+            - Logo 
             - Barre de recherche (permet de rechercher d'autre utilisateur): 
-                - Liste déroulante avec les utilisateurs qui correspondent à la recherche
+                - Liste déroulante avec les utilisateurs qui correspondent à la recherche X
             - Navigation (permet de naviguer entre les différentes pages):
                 - Accueil
-                - Lien vers le fil d'actualité, si authentifié
-                - Lien vers le profil, si authentifié
-                - Lien vers les paramètres, si authentifié
-                - Lien vers la page d'inscription, si non authentifié
-                - Lien vers la page de connexion, si non authentifié
+                - Lien vers le fil d'actualité, si authentifié X
+                - Lien vers le profil, si authentifié X
+                - Lien vers les paramètres, si authentifié X
+                - Lien vers la page d'inscription, si non authentifié X
+                - Lien vers la page de connexion, si non authentifié X
         - Footer:
             - Logo
             - Copyright
@@ -35,6 +35,7 @@
         - Accueil (est censé pousse les visiteurs à s'inscrire):
             - Couverture aguicheuse, pousse les visiteurs à s'inscrire
             - Montre les fonctionnalités du réseau
+            - Ne pas l'afficher quand authentifié X
         - Inscription:
             - Formulaire avec:
                 - Nom d'utilisateur (supérieur à 8 caractères, inférieur à 15 caractères)
