@@ -6,3 +6,5 @@ api/glide.lock
 .vscode/
 api/node_modules
 ui/node_modules
+ui/yarn-error.log
+api/yarn-error.log
