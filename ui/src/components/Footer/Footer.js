@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import Logo from '../Logo/Logo';
+import Logo from "../Logo/Logo";
 
 const StyledFooter = styled.footer`
     display: flex;
@@ -18,8 +18,8 @@ const StyledFooter = styled.footer`
 `;
 
 export default () => (
-    <StyledFooter>
-        <Logo size="4rem"/>
-        <p>Copyright © 2018 by Instagrim, Inc.</p>
-    </StyledFooter>
+	<StyledFooter>
+		<Logo size="4rem"/>
+		<p>Copyright © 2018 by Instagrim, Inc.</p>
+	</StyledFooter>
 );
