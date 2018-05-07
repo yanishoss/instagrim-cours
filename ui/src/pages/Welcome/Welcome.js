@@ -1,10 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import {Link} from 'react-router-dom';
-import {Button} from 'material-ui';
+import React from "react";
+import styled from "styled-components";
+import {Link} from "react-router-dom";
+import {Button} from "material-ui";
 
-import hero from '../../images/hero.jpg';
-import Layout from './../../containers/Layout/Layout';
+import hero from "../../images/hero.jpg";
 
 const StyledMain = styled.main`
     min-width: 100%;
@@ -88,19 +87,19 @@ const StyledMain = styled.main`
 `;
 
 export default (props) => (
-    <StyledMain>
-        <h1>Partager vos pires têtes sur Instagrim!</h1>
-        <p>Sur Instagrim, nous ne jugeons vos têtes, postez vos pires grimaces, sans gêne.</p>
-        <div>
-            <Button variant="raised" color="secondary" size="large" className="blue">
-                <Link to="/signup">Se connecter</Link>
-            </Button>
+	<StyledMain>
+		<h1>Partager vos pires têtes sur Instagrim!</h1>
+		<p>Sur Instagrim, nous ne jugeons vos têtes, postez vos pires grimaces, sans gêne.</p>
+		<div>
+			<Button variant="raised" color="secondary" size="large" className="blue">
+				<Link to="/signin">Se connecter</Link>
+			</Button>
             
             
-            <Button variant="raised" color="primary" size="large" className="pink">
-                <Link to="/signin">S'inscrire</Link>
-            </Button>
-        </div>
-    </StyledMain>
+			<Button variant="raised" color="primary" size="large" className="pink">
+				<Link to="/signup">S'inscrire</Link>
+			</Button>
+		</div>
+	</StyledMain>
 );
 

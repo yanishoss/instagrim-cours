@@ -1,7 +1,7 @@
-import React, {Component} from 'react'; 
-import {Grow, Paper, MenuList} from 'material-ui';
-import styled, {withTheme} from 'styled-components';
-import Transition from 'react-transition-group/Transition';
+import React, {Component} from "react"; 
+import {Grow, Paper, MenuList} from "material-ui";
+import styled, {withTheme} from "styled-components";
+import Transition from "react-transition-group/Transition";
 
 const StyledGrow = styled(Grow)`
     display: block;
@@ -16,19 +16,19 @@ const StyledGrow = styled(Grow)`
 `;
 
 class Menu extends Component {
-    render() {
-        return (
-            <Transition in={this.props.opened} timeout={this.props.theme.animationDuration} ref="menu" unmountOnExit>
-                <StyledGrow in={this.props.opened} className={this.props.className} timeout={this.props.theme.animationDuration}>
-                    <Paper>
-                        <MenuList>
-                            {this.props.children}
-                        </MenuList>
-                    </Paper>
-                </StyledGrow>
-            </Transition>
-        );
-    }
+	render() {
+		return (
+			<Transition in={this.props.opened} timeout={this.props.theme.animationDuration} ref="menu" unmountOnExit>
+				<StyledGrow in={this.props.opened} className={this.props.className} timeout={this.props.theme.animationDuration}>
+					<Paper>
+						<MenuList>
+							{this.props.children}
+						</MenuList>
+					</Paper>
+				</StyledGrow>
+			</Transition>
+		);
+	}
 }
 
 export default withTheme(Menu);

@@ -3,8 +3,6 @@ api/post.db
 api/user.db
 api/vendor
 api/glide.lock
-.vscode/
-api/node_modules
-ui/node_modules
-ui/yarn-error.log
-api/yarn-error.log
+**/.vscode
+**/node_modules
+**/yarn-error.log

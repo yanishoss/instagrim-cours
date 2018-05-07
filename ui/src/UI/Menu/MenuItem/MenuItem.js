@@ -1,6 +1,6 @@
-import React from 'react';
-import { MenuItem } from 'material-ui';
-import styled from 'styled-components';
+import React from "react";
+import { MenuItem } from "material-ui";
+import styled from "styled-components";
 
 const StyledItem = styled(MenuItem)`
     color: ${props => props.theme.primary};
@@ -20,7 +20,7 @@ const StyledItem = styled(MenuItem)`
 `;
 
 export default (props) => (
-    <StyledItem {...props}>
-        {props.children}
-    </StyledItem>
+	<StyledItem {...props}>
+		{props.children}
+	</StyledItem>
 );
