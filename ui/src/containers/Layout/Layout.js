@@ -1,10 +1,13 @@
 import React, {Component} from "react";
 import styled, {ThemeProvider} from "styled-components";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import {ApolloProvider} from 'react-apollo';
+import ApolloClient from 'apollo-boost';
 
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Welcome from "../../pages/Welcome/Welcome";
+import SignUp from './../../pages/SignUp/SignUp';
 
 const theme = {
 	primary: "#212121",
@@ -36,21 +39,28 @@ const StyledDiv = styled.div `
     }
 `;
 
+const client = new ApolloClient({
+	uri: "http://localhost:80/graphql"
+});
+
 class Layout extends Component {
 	render() {
 		return (
-			<BrowserRouter>
-				<ThemeProvider theme={theme}>
-					<StyledDiv>
-						<Header/>
-						<Switch>
-							<Route path="/home" component={Welcome} exact/>
-							<Redirect to="/home"/>
-						</Switch>                    
-						<Footer/>
-					</StyledDiv>
-				</ThemeProvider>
-			</BrowserRouter>
+			<ApolloProvider client={client}>
+				<BrowserRouter>
+					<ThemeProvider theme={theme}>
+						<StyledDiv>
+							<Header/>
+							<Switch>
+								<Route path="/home" component={Welcome} exact/>
+								<Route path="/signup" component={SignUp} exact/>
+								<Redirect to="/home"/>
+							</Switch>                    
+							<Footer/>
+						</StyledDiv>
+					</ThemeProvider>
+				</BrowserRouter>
+			</ApolloProvider>
 		);
 	}
 }

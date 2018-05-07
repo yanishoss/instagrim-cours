@@ -10,8 +10,9 @@
  *  The object described above is then sent through the getState(formState) method which is passed as a FormValidator's props.
 */
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import lodash from 'lodash';
 
 //  Context through is passed the inputs values.
 import {ValidationContext} from './ValidationContext';
@@ -119,7 +120,7 @@ const getInitialState = configuration => {
  *      - configuration: an object containing the fields' name with their configuration.
  *      - getState(nextState): a function calling each time the fields' state (state here means whether they're valid) changed.
  */
-export default class FormValidator extends Component {
+export default class FormValidator extends PureComponent {
 
     //  Sets statically the types of the props.
     static propTypes = {
@@ -142,8 +143,10 @@ export default class FormValidator extends Component {
     }
 
     //  Executes each time the inputs change.
-    componentDidUpdate() {
-        validate(this.state.fields, this.props.configuration, this.props.getState);
+    componentDidUpdate(_, prevState) {
+        if (!lodash.isEqual(prevState, this.state)){
+            validate(this.state.fields, this.props.configuration, this.props.getState);
+        }
     }
 
     render() {
