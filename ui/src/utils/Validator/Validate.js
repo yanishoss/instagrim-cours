@@ -7,3 +7,37 @@
  * 
  *  (More on the explanation of the relationship between that component and the FormValidator here: ./FormValidator.js).
  */
+
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+
+//  Context through we are going to pass the input value.
+import {ValidationContext} from "./ValidationContext";
+
+//  Consumer through we are going to call sendInputValue(name, value).
+const {Consumer} = ValidationContext;
+
+/**
+ *  It takes as props:
+ *      - name: a string giving the name of the field.
+ * 
+ *  It just appends an onChange method which call sendInputValue(name, value) with the value of the input.
+ */
+const Validate = ({name, children}) => (
+	<Consumer>
+		{sendInputValue => React.cloneElement(children, {
+			onChange: e => sendInputValue(name, e.target.value)
+		})}
+	</Consumer>
+);
+
+//  Sets statically the types of the props.
+Validate.propTypes = {
+	//  Name must be a string, it is completely required.
+	name: PropTypes.string.isRequired,
+	//  Children must be a React node element, namely all element implementing onChange props.
+	//  Obviously, it is required.
+	children: PropTypes.node.isRequired
+};
+
+export default Validate;
