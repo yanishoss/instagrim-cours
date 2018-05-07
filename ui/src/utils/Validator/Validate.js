@@ -26,7 +26,13 @@ const {Consumer} = ValidationContext;
 const Validate = ({name, children}) => (
 	<Consumer>
 		{sendInputValue => React.cloneElement(children, {
-			onChange: e => sendInputValue(name, e.target.value)
+			onChange: e => {
+				//	If the input already has an onChange method, we call it.
+				if (children.onChange){
+					children.onChange(e);
+				}
+				sendInputValue(name, e.target.value);
+			}
 		})}
 	</Consumer>
 );
