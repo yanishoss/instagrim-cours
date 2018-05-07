@@ -6,6 +6,6 @@ Instagrim est un clone d'Instagram écrit à l'occasion du cours Udemy "**React,
 
     git init
     ...
-    git clone https://github.com/YanisH25/instagrim.git
+    git clone https://github.com/YanisH25/instagrim-cours.git
     ...
 
