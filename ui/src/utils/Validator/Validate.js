@@ -23,21 +23,46 @@ const {Consumer} = ValidationContext;
  * 
  *  It just appends an onChange method which call sendInputValue(name, value) with the value of the input.
  */
-const Validate = ({name, children}) => (
-	<Consumer>
-		{sendInputValue => React.cloneElement(children, {
-			onChange: e => sendInputValue(name, e.target.value)
-		})}
-	</Consumer>
-);
+class Validate extends Component {
 
-//  Sets statically the types of the props.
-Validate.propTypes = {
-	//  Name must be a string, it is completely required.
-	name: PropTypes.string.isRequired,
-	//  Children must be a React node element, namely all element implementing onChange props.
-	//  Obviously, it is required.
-	children: PropTypes.node.isRequired
-};
+	//  Sets statically the types of the props.
+	static propTypes = {
+		//  Name must be a string, it is completely required.
+		name: PropTypes.string.isRequired,
+		//  Children must be a React node element, namely all element implementing onChange props.
+		//  Obviously, it is required.
+		children: PropTypes.node.isRequired,
+	};
+
+	hasMounted = false;
+
+	//	Sets hasMounted to true whenever it is mounted
+	componentDidMount(){
+		this.hasMounted = true;
+	}
+
+	render() {
+		const {name, children} = this.props;
+		return (
+			<Consumer>
+				{sendInputValue => {
+					if (!this.hasMounted){
+						//	Sends the initial value.
+						sendInputValue(name, children.value);
+					}
+					return React.cloneElement(children, {
+						onChange: e => {
+							//	If the input already has an onChange method, we call it.
+							if (children.props.onChange){
+								children.props.onChange(e);
+							}
+							sendInputValue(name, e.target.value);
+						}
+					});
+				}}
+			</Consumer>
+		)
+	}
+}
 
 export default Validate;

@@ -13,12 +13,16 @@ const { graphqlExpress, graphiqlExpress } = require("apollo-server-express");
 // BodyParser for parsing our response body
 const bodyParser = require("body-parser");
 
+// Against CORS
+const cors = require("cors");
+
 // Figlet for awesomes texts in the console
 const figlet = require("figlet");
 
 // The whole application configuration
 const config = require("./config");
 
+// Including the GraphQL schema
 const schema = require("./schema");
 
 // The Express application
@@ -26,6 +30,9 @@ const app = express();
 
 // Using Morgan to log the requests in the console
 app.use(morgan("tiny"));
+
+// Shut down the CORS
+app.use(cors());
 
 // Our GraphQL endpoint
 app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
