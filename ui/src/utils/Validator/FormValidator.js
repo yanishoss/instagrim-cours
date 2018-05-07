@@ -74,6 +74,25 @@ const validateForm = (mapInputsToBoolean) => {
 };
 
 /**
+ *  getInitialState(configuration) takes the configuration passed in props as an argument.
+ *  Returns an object as the initial state of the fields.
+ */
+const getInitialState = configuration => {
+    //  The initial value of the inputs.
+    const defaultInputs = {};
+
+    //  Loops over the configuration's fields to figure out what fields are there.
+    //  Then just push them into defaultInputs with an initial value (just an empty string is enough).
+    //  If a default value is passed in the configuration, it just maps that to the field.
+    for (field in configuration) {
+        defaultInputs[field] = configuration[field].default ? configuration[field].default : "";
+    }
+
+    return defaultInputs;
+};
+
+
+/**
  *  It takes as props:
  *      - configuration: an object containing the fields' name with their configuration.
  *      - getState(nextState): a function calling each time the fields' state (state here means whether they're valid) changed.
@@ -95,10 +114,10 @@ export default class FormValidator extends Component {
         fields = {}
     }
 
-    //  Executes each time the inputs change.
-    componentDidUpdate() {
-        //  Gets getState from props
-        const { getState } = this.props;
+    //  Executes only at the mounting, purpose is to provide an initial state to the consumer component.
+    componentDidMount(){
+        //  Gets getState and configuration from props
+        const { getState, configuration } = this.props;
 
         //  Doesn't bother to execute if there is not getState callback provided.
         if (!getState){
@@ -106,7 +125,34 @@ export default class FormValidator extends Component {
         }
 
         //  Maps inputs to their validity boolean. 
-        const fields = validateAllInputs(this.state.fields, this.props.configuration);
+        const fields = validateAllInputs(getInitialState(configuration), configuration);
+
+        //  Returns if the whole form is valid according to all the inputs.
+        const valid = validateForm(fields);
+
+
+        //  Just calls the getState callback with the new state.
+        getState({
+            fields,
+            valid
+        });
+    }
+
+    //  Executes each time the inputs change.
+    componentDidUpdate() {
+        //  Gets getState and configuration from props
+        const { getState, configuration } = this.props;
+
+        // Gets fields from state.
+        const { fieldsInput } = this.state;
+
+        //  Doesn't bother to execute if there is not getState callback provided.
+        if (!getState){
+            return;
+        }
+
+        //  Maps inputs to their validity boolean. 
+        const fields = validateAllInputs(fieldsInput, configuration);
 
         //  Returns if the whole form is valid according to all the inputs.
         const valid = validateForm(fields);
