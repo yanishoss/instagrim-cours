@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Welcome from "../../pages/Welcome/Welcome";
-import SignUp from "../../pages/SignUp/SignUp";
 
 const theme = {
 	primary: "#212121",
@@ -46,7 +45,6 @@ class Layout extends Component {
 						<Header/>
 						<Switch>
 							<Route path="/home" component={Welcome} exact/>
-							<Route path="/signup" component={SignUp} exact/>
 							<Redirect to="/home"/>
 						</Switch>                    
 						<Footer/>

@@ -8,7 +8,7 @@
  *  (More on the explanation of the relationship between that component and the FormValidator here: ./FormValidator.js).
  */
 
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 //  Context through we are going to pass the input value.
@@ -37,7 +37,7 @@ Validate.propTypes = {
 	name: PropTypes.string.isRequired,
 	//  Children must be a React node element, namely all element implementing onChange props.
 	//  Obviously, it is required.
-	children: PropTypes.node.isRequired
+	children: PropTypes.node.isRequired,
 };
 
 export default Validate;
