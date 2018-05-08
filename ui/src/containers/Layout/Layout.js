@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 import styled, {ThemeProvider} from "styled-components";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import {ApolloProvider} from 'react-apollo';
-import ApolloClient from 'apollo-boost';
+import { ApolloProvider }from "react-apollo";
+import ApolloClient from "apollo-boost";
 
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Welcome from "../../pages/Welcome/Welcome";
-import SignUp from './../../pages/SignUp/SignUp';
+import SignUp from "./../../pages/SignUp/SignUp";
 
 const theme = {
 	primary: "#212121",
