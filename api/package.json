@@ -21,7 +21,7 @@
     "graphql-date": "^1.0.3",
     "graphql-tools": "^2.24.0",
     "jsonwebtoken": "^8.2.1",
-    "mongoose": "^5.0.15",
+    "mongoose": "^5.12.2",
     "morgan": "^1.9.0",
     "node-gyp": "^3.6.2"
   },
