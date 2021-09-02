@@ -21,9 +21,9 @@
     "graphql-date": "^1.0.3",
     "graphql-tools": "^2.24.0",
     "jsonwebtoken": "^8.2.1",
-    "mongoose": "^5.0.15",
+    "mongoose": "^6.0.4",
     "morgan": "^1.9.0",
-    "node-gyp": "^3.6.2"
+    "node-gyp": "^4.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.17.3"
