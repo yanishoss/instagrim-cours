@@ -4,12 +4,12 @@
   "private": true,
   "dependencies": {
     "material-ui": "^1.0.0-beta.44",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
     "react-responsive": "^4.1.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
-    "styled-components": "^3.2.6"
+    "styled-components": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
