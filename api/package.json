@@ -23,7 +23,7 @@
     "jsonwebtoken": "^8.2.1",
     "mongoose": "^5.0.15",
     "morgan": "^1.9.0",
-    "node-gyp": "^3.6.2"
+    "node-gyp": "^7.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.17.3"
